@@ -1,0 +1,40 @@
+#include <stdio.h>
+
+int main() {
+    int p1[10], p2[10], sum[10];
+    int i, n;
+
+    printf("Enter the highest degree of polynomial: ");
+    scanf("%d", &n);
+
+    // Input first polynomial
+    printf("Enter coefficients of first polynomial:\n");
+    for(i = 0; i <= n; i++) {
+        printf("Coefficient of x^%d: ", i);
+        scanf("%d", &p1[i]);
+    }
+
+    // Input second polynomial
+    printf("Enter coefficients of second polynomial:\n");
+    for(i = 0; i <= n; i++) {
+        printf("Coefficient of x^%d: ", i);
+        scanf("%d", &p2[i]);
+    }
+
+    // Add polynomials
+    for(i = 0; i <= n; i++) {
+        sum[i] = p1[i] + p2[i];
+    }
+
+    // Display result
+    printf("\nResultant Polynomial:\n");
+    for(i = n; i >= 0; i--) {
+        if(sum[i] != 0) {
+            printf("%dx^%d", sum[i], i);
+            if(i != 0)
+                printf(" + ");
+        }
+    }
+
+    return 0;
+}
